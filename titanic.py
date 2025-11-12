@@ -38,20 +38,11 @@ features[f"sex_{sex}"] = 1
 
 input_data = pd.DataFrame([features])
 
-# input_data = pd.DataFrame({
-#     "survived": [survived],
-#     "status": [status],
-#     "sex": [sex],
-#     "age": [age],
-# })
-
-
 # --- Prediksi ---
 try:
-    X = input_data.to_numpy()
 
-    prediction = model(X)[0]
-    probability = model(X, model.Probs)[0][int(prediction)]
+    prediction = model.predict(input_data)[0]
+    probability = model.predict_proba(input_data)[0][int(prediction)]
 
     # --- Tampilkan Hasil ---
     st.subheader("🎯 Hasil Prediksi:")
