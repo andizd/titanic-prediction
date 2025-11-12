@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
+import joblib
 
 # Load Model
-with open("titanic_3feature_new.pkcls", "rb") as file:
-    model = pickle.load(file)
+model = joblib.load("titanic_rf_sklearn.joblib")
 
 # Judul Aplikasi
 st.title("🚢 Prediksi Keselamatan Penumpang Titanic")
